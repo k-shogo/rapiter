@@ -2,12 +2,11 @@ require "bundler/setup"
 require 'sinatra/base'
 require 'rack-dynamic-reverse-proxy'
 require 'redis'
-require 'hirlite/connection'
 require 'json'
 
 
 class MainApp < Sinatra::Base
-  redis = Redis.new(:host => ":memory:", :driver => Rlite::Connection::Hirlite)
+  redis = Redis.new
 
   use Rack::DynamicReverseProxy do
     reverse_proxy_options preserve_host: true

@@ -1,7 +1,6 @@
 FROM ruby:2.2.1
 
-RUN cd /usr/local/src/ && git clone https://github.com/seppo0010/rlite.git
-RUN cd /usr/local/src/rlite && make all
+RUN apt-get update && apt-get install -y redis-server --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
@@ -13,4 +12,4 @@ RUN bundle install -j4
 COPY . /usr/src/app
 
 EXPOSE 4567
-CMD ["bundle", "exec", "unicorn", "-p", "4567", "-c", "./config/unicorn.rb"]
+CMD ["bundle", "exec", "foreman", "start"]
