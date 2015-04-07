@@ -1,8 +1,34 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    hirlite (0.1.0)
+    kgio (2.9.3)
+    rack (1.6.0)
+    rack-dynamic-reverse-proxy (0.0.1)
+      rack (>= 1.0.0)
+      rack-proxy (~> 0.5)
+    rack-protection (1.5.3)
+      rack
+    rack-proxy (0.5.17)
+      rack
+    raindrops (0.13.0)
+    redis (3.2.1)
+    sinatra (1.4.6)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
+    tilt (2.0.1)
+    unicorn (4.8.3)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  hirlite
+  rack-dynamic-reverse-proxy
+  redis
+  sinatra
+  unicorn

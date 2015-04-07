@@ -13,4 +13,4 @@ RUN bundle install -j4
 COPY . /usr/src/app
 
 EXPOSE 4567
-CMD ["bundle", "exec", "ruby", "app.rb", "-o","0.0.0.0"]
+CMD ["bundle", "exec", "unicorn", "-p", "4567", "-c", "./config/unicorn.rb"]
