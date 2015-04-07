@@ -19,8 +19,8 @@ class MainApp < Sinatra::Base
   end
 
   get '/' do
-    @keys = redis.keys
-    erb :index
+    keys = redis.keys
+    keys.map{|k| [k, redis.get k]}.to_h.to_json
   end
 
   post '/' do
