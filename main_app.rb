@@ -20,7 +20,7 @@ class MainApp < Sinatra::Base
 
   get '/' do
     keys = redis.keys
-    keys.map{|k| [k, redis.get k]}.to_h.to_json
+    keys.map{|k| [k, redis.get(k)]}.to_h.to_json
   end
 
   post '/' do
